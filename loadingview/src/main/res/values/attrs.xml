@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="FourAngleLoadingView">
+        <attr name="firstColor" format="color|reference"/>
+        <attr name="secondColor" format="color|reference"/>
+        <attr name="thirdColor" format="color|reference"/>
+        <attr name="fouthColor" format="color|reference"/>
+        <attr name="speed" format="enum">
+            <enum name="slow" value="1"/>
+            <enum name="normal" value="2"/>
+            <enum name="fast" value="3"/>
+        </attr>
+    </declare-styleable>
+</resources>
