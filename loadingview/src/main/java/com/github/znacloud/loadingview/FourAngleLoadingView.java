@@ -21,8 +21,8 @@ public class FourAngleLoadingView extends SurfaceView implements SurfaceHolder.C
     private final double PI = Math.PI;
     private final double HALF_PI = 0.5*Math.PI;
 
-    private final float MIN_WIDTH = 350f;
-    private final float MIN_HEIGHT = 350f;
+    private final int DEFAULT_WIDTH = 350;
+    private final int DEFAULT_HEIGHT = 350;
 
     private final int BALL_COUNT = 40;
     private final float BASE_SIZE = 0.1f;
@@ -41,8 +41,8 @@ public class FourAngleLoadingView extends SurfaceView implements SurfaceHolder.C
     private int mThirdColor = Color.YELLOW;
     private int mFouthColor = Color.GREEN;
 
-    private float mWidth =MIN_WIDTH;
-    private float mHeight = MIN_HEIGHT;
+    private int mWidth = DEFAULT_WIDTH;
+    private int mHeight = DEFAULT_HEIGHT;
 
     private long tick = 0L;
     private DrawThread mDrawThread;
@@ -86,10 +86,10 @@ public class FourAngleLoadingView extends SurfaceView implements SurfaceHolder.C
         int widthSpecMode = MeasureSpec.getMode(widthMeasureSpec);
         int heightSpecMode = MeasureSpec.getMode(heightMeasureSpec);
         if(widthSpecMode == MeasureSpec.AT_MOST){
-            widthMeasureSpec = MeasureSpec.makeMeasureSpec((int)MIN_WIDTH,MeasureSpec.EXACTLY);
+            widthMeasureSpec = MeasureSpec.makeMeasureSpec(DEFAULT_WIDTH, MeasureSpec.EXACTLY);
         }
         if(heightSpecMode == MeasureSpec.AT_MOST){
-            heightMeasureSpec = MeasureSpec.makeMeasureSpec((int)MIN_HEIGHT,MeasureSpec.EXACTLY);
+            heightMeasureSpec = MeasureSpec.makeMeasureSpec(DEFAULT_HEIGHT, MeasureSpec.EXACTLY);
         }
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         mWidth = getWidth();
@@ -143,7 +143,7 @@ public class FourAngleLoadingView extends SurfaceView implements SurfaceHolder.C
 
 
                     float angle = tick/16f;
-                    float radius = (-50 + (float)Math.sin(tick/30f)*100f)*mWidth/MIN_WIDTH;
+                    float radius = (-50 + (float) Math.sin(tick / 30f) * 100f) * mWidth / DEFAULT_WIDTH;
                     float size = 0;
 
                     for(int i = 0;i<BALL_COUNT;i++){
